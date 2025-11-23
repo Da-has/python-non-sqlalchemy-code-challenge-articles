@@ -1,4 +1,5 @@
 class Article:
+    all = []
     def __init__(self, author, magazine, title):
         # Validating our inputs to ensure no invalid objects or strings
         if not isinstance(author, Author):
@@ -16,6 +17,8 @@ class Article:
         # Registering the article with author and the magazine
         author._articles.append(self)
         magazine._articles.append(self)
+
+        Article.all.append(self)
 
     @property
     def title(self):
